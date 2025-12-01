@@ -16,7 +16,7 @@ function addTask(task){
 }
 
 // to check if the task already ther in tasks list
-function tastExist(task){
+function taskExist(task){
   for(let i=0; i< tasks.length; i++){
     if(tasks[i].toLowerCase()=== task.toLowerCase()){
       return true
@@ -34,7 +34,7 @@ function clearTasks(){
 }
 // delete specific task
 function deleteSpecificTask(index){
-  tasks.splice(index-1,1)
+  tasks.splice((Number(index)-1),1)
   console.log("This is the tasks after deleting the select task: ")
   for (let i=0; i< tasks.length; i++){
     console.log(`${i+1}. ${tasks[i]}`)
@@ -47,7 +47,7 @@ function deleteSpecificTask(index){
 function longestTask(task){
   let maxTask = task[0]
   for (let i=0; i< task.length; i++){
-    if( maxTask < task[i]){
+    if( maxTask.length < task[i].length){
       maxTask = task[i]
     }
   }
@@ -65,13 +65,14 @@ function markTasks(task){
       for(let i=0; i< task.length; i++){
         console.log(`${i+1}.${task[i]}`)
       }
-      rl.question("Enter number of task you wanna mark as done? ", (index)=>{
-         for(let i=0; i<task.lenght; i++){
-          if(index.toLowerCase()=== (i+1)){
-            doneTasks.push(i)
+      rl.question("Enter number of tasks you wanna mark as done?(e.g. 1,3,5): ", (index)=>{
+        const doneIndex = index.split(",").map(numIndex => Number(numIndex.trim()))
+         for(let i=0; i<task.length; i++){
+          if(doneIndex.includes (i+1)){
+            doneTasks.push(task[i])
           }
           else{
-            nonDoneTasks.push(i)
+            nonDoneTasks.push(task[i])
           }
          }
 
@@ -80,13 +81,15 @@ function markTasks(task){
     console.log(`${i+1}.${doneTasks[i]}`)
   }
   console.log(`Not-done Tasks::`)
-  for(let i=0; i< doneTasks.length; i++){
+  for(let i=0; i< nonDoneTasks.length; i++){
     console.log(`${i+1}.${nonDoneTasks[i]}`)
   }
-      })gi
+  rl.close()
+      })
     }
     else{
       console.log("Goodbye for today")
+      rl.close()
      
     }
   })
@@ -104,11 +107,12 @@ function askTask(){
          
          
       }
-      console.log(`This is the lenght of today's to do lis: ${tasks.length}`)
-      console.log(`This is sorted tasks of today: ${tasks.sort()}`)
+      console.log(`This is the length of today's to do lis: ${tasks.length}`)
+      // sortig cop of the array 
+      console.log(`This is sorted tasks of today: ${[...tasks].sort()}`)
       console.log(`This is the longest task in length in today's task: ${longestTask(tasks)}`)
       markTasks(tasks)
-     rl.close()
+    //  rl.close()
     
     }
     else if(input.toLowerCase()==="delete"){
@@ -116,7 +120,7 @@ function askTask(){
       // clearTasks()
       // askTask()
      rl.question("Do you wanna delete all task or specific one? (if all write 'all' or if specific one write 'one') : " , (inputDelete)=>{
-      if(input.toLowerCase()==="all"){
+      if(inputDelete.toLowerCase()==="all"){
         clearTasks()
         askTask()
       }
@@ -137,7 +141,7 @@ function askTask(){
     }
     else{
 
-      if(tastExist(input)){
+      if(taskExist(input)){
        console.log("This task is already exists.ENter another task")
       }
       else{
