@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model (DOM)</title>
+</head>
+<body>
+    
+    <h1 id="main-title"></h1>
+    <p class="intro"></p>
+    <ul class="items">
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ul>
+
+    <script>
+      const title = document.getElementById('main-title')
+      title.innerHTML= "MY AWESOME PAGE"
+
+      const paragraph = document.querySelector('.intro')
+      paragraph.innerHTML = "This is the dynamic text "
+      
+      const items = document.querySelectorAll('.items li')
+      //either use for loop to display the content of the list items
+       for (let i =0; i<  items.length ; i++){
+        console.log(items[i].textContent)
+       }
+    // or use foreach loop to display the list items
+       items.forEach((item)=>{
+        console.log(item.textContent)
+       })
+      
+       //using setTimeout() function
+       setTimeout(()=>{
+        title.innerHTML= "Changed the text of the h1 again in after two seconds"
+       }, 2000)
+    </script>
+</body>
+</html>
