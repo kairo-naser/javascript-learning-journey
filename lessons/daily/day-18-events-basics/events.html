@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Handlers</title>
+</head>
+<body>
+    <div class="div">
+        <h1>Testing event listeners</h1>
+    <button id="btn">Click Me</button> <br>
+    <input type="text" name=""   id="input"   >
+    <a href="/kaironaser.com" id="link">click this link</a>
+    </div>
+    <script>
+
+        //addEventListener to chnage the properties of the btn when  click it 
+        const btn = document.getElementById("btn")
+        btn.addEventListener('click', ()=>{
+            btn.style.backgroundColor = "red"
+            btn.style.color ="white"
+            btn.style.padding = '10px'
+            btn.style.border ="0px"
+            btn.style.borderRadius ="10px"
+            btn.innerHTML = "event listener , click"
+        })
+        //changing the background color with mouseover, and mouseout
+        const div = document.querySelector('.div')
+        div.addEventListener('mouseout', ()=>{
+            div.style.backgroundColor ="green"
+        })
+        div.addEventListener('mouseover', ()=>{
+            div.style.backgroundColor ="red"
+        })
+       
+        //using keyup 
+        const input = document.getElementById('input')
+        input.addEventListener('keyup', (event)=>{
+            console.log(event.target.value)
+        })
+        //preventing to click the link
+        const link = document.getElementById("link")
+        link.addEventListener('click', (event)=>{
+          event.preventDefault();
+          console.log("The link is clicked")
+        })
+    </script>
+</body>
+</html>
