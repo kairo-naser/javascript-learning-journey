@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises </title>
+</head>
+<body>
+
+<h3>Promises</h3>
+<p id="result"></p>
+<p id="final"></p>
+
+<script>
+    const result = document.getElementById('result')
+    const fnl = document.getElementById("final")
+
+    const dataResult = new Promise((resolve, reject)=>{
+     const success = true 
+     if(success){
+        setTimeout(()=>{
+            resolve("Data is being fetched successfully")
+        }, 3000)
+     }
+     else{
+      setTimeout(()=>{
+          reject("Fetching of data is failed")
+      }, 5000)
+     }
+    })
+   
+    dataResult.then((m)=>{
+        result.innerHTML = m
+    })
+    .catch((error)=>{
+        result.innerHTML  = error
+    })
+    .finally(()=>{
+        
+        fnl.innerHTML = "This is the finall line that always displays"
+    })
+</script>
+    
+</body>
+</html>
