@@ -13,6 +13,11 @@
     </form>
     <p id="result"></p>
 
+    <div>
+        <p>Today's date and time is </p>
+        <p id="date"></p>
+    </div>
+
     <script>
 
         let n1 =0
@@ -80,8 +85,14 @@ setInterval(()=>{
       */
        
        
-
-
+// displaying day, date and time using setInterval function
+function mydate(){
+    let d = new Date()
+   const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+   let dayName = days[d.getDay()]
+    document.getElementById('date').innerHTML = dayName + ", " + d.getDate() +"/" +d.getMonth()+1 + "/" + d.getFullYear() + " ,"+ d.getHours()+":"  + d.getMinutes() + " "  
+}
+setInterval (mydate , 1000)
     </script>
 </body>
 </html>
