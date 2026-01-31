@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback functions</title>
+</head>
+<body>
+    <form action="" id="form">
+        <input type="text" name="" id="num1">
+    <input type="text" name="" id="num2">
+    <button id="btn" type="submit">Calculate</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+
+        let n1 =0
+        let n2 =0
+
+        const form = document.getElementById("form")
+        form.addEventListener("submit", (event)=>{
+        event.preventDefault()
+          n1 =Number( document.getElementById("num1").value)
+          n2 = Number(document.getElementById("num2").value)
+          //calling two functions without callback
+         /* let r = calculate(n1, n2)
+          display(r)*/
+          //calculate(n1, n2)
+/*
+          
+          //using stetimeout in the calling function
+
+
+          setTimeout(()=>{
+            calculate(n1,n2,display)
+          }, 3000)
+*/
+/*
+//using setInterval function
+setInterval(()=>{
+    console.log("this running again")
+    calculate(n1, n2, display)
+}, 1000)
+
+*/
+
+         calculate(n1, n2, display)
+        })
+
+        //two function without call back
+        function display(result){
+            const rst = document.getElementById("result")
+            rst.innerHTML = result
+        }
+        /*function calculate(num1, num2){
+            let sum = num1 + num2
+            display(sum)
+            
+        }*/
+
+        //callback function
+        function calculate(num1, num2, callBackFunc){
+            let sum = num1 + num2
+            callBackFunc(sum)
+            
+        }
+      /*
+      
+      //callback function using stetimeout function inside the function
+         function calculate(num1, num2, callBackFunc){
+             setTimeout(()=>{
+           let sum = num1 + num2
+            callBackFunc(sum)
+       }, 3000)
+
+            
+            
+        }
+      */
+       
+       
+
+
+    </script>
+</body>
+</html>
