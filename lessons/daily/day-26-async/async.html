@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async and wait </title>
+</head>
+<body>
+    <h3>Async/Await function</h3>
+    <p id="text"></p>
+    <script>
+        const text = document.getElementById("text")
+         function fetchData ()
+         {return  new Promise ((res, req)=>{
+            const success = false
+            if(success) {
+                res("The data is fetched successfully")
+            }
+            else {
+               req("Failed to fetched data")
+            }
+         })
+        }
+        async function fetchText () {
+            try{
+              const response = await fetchData()
+              text.innerHTML = response
+            }
+            catch(error){
+                text.innerHTML = error
+            }
+            finally{
+                console.log("Ended")
+            }
+        }
+        fetchText()
+    </script>
+</body>
+</html>
