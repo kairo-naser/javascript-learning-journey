@@ -38,31 +38,25 @@ To keep everything organized and easy to follow, this is how my repo is structur
 ```Repository Structure
 javascript-learning-journey/
 │
-├── 📄 README.md          # Overview (this file)
-|
-│
-├── 📂 notes/             # Reading notes & daily roadmap notes
-│   ├── eloquent-javascript/  # Notes from Eloquent JavaScript
+├── 
+├── notes/
+│   ├── eloquent-javascript/
 │   │   ├── chapter-01.md
 │   │   ├── chapter-02.md
 │   │   └── ...
-|   |
-│   └── daily/                 # Notes from daily roadmap progress
-│   |   ├── day-01.md
-│   |   ├── day-02.md
-│   | 
-|   └── js-notes-for-professionals/
-|   |
-|   └──...
+│   ├── daily/
+│   │   ├── day-01.md
+│   │   ├── day-02.md
+│   │   └── ...
+│   └── js-notes-for-professionals/
 │
-├── 📂 lessons/           # Small code lessons & practice snippets
+├── lessons/
 │   ├── js-notes-for-professionals/
 │   │   └── 01-Getting-Started-with-Javascript/
-|   |       └──01-using-console-log.js   
-│   |
-│   └──daily/
+│   │       └── 01-using-console-log.js
+│   └── daily/
 │
-├── 📂 projects/          # Bigger hands-on projects
+├── projects/
 │   ├── calculator/
 │   │   ├── index.html
 │   │   ├── style.css
@@ -73,12 +67,12 @@ javascript-learning-journey/
 │   │   └── app.js
 │   └── ...
 │
-├── 📂 resources/         # Helpful links, cheatsheets, extras
-│   ├── books.md           # List of books I’m following
-│   ├── 90-days-roadmap.md # My detailed 90-day JS plan
-│   └── references.md      # Useful articles/tutorials
+├── resources/
+│   ├── books.md
+│   ├── 90-days-roadmap.md
+│   └── references.md
 │
-└── 📂 experiments/       # Random code experiments / scratch pad
+└── experiments/
     └── try-things-out.js
 ```
 
